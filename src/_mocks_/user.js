@@ -6,12 +6,24 @@ import { mockImgAvatar } from '../utils/mockImages';
 // ----------------------------------------------------------------------
 
 const users = [...Array(24)].map((_, index) => ({
-  id: faker.datatype.uuid(),
+  bill_id: faker.datatype.uuid(),
   avatarUrl: mockImgAvatar(index + 1),
   name: faker.name.findName(),
+  amount: faker.finance.amount(1000, 10000),
   company: faker.company.companyName(),
+  timeStamp: faker.date.past(2),
   isVerified: faker.datatype.boolean(),
-  status: sample(['active', 'banned']),
+  category: sample(['Food', 'Clothing', 'Electronics', 'Health & Wellness']),
+  brand: sample([
+    'Dairy Products',
+    'Fruits',
+    'Vegetables',
+    'Cereals',
+    'Grains',
+    'Instant Food',
+    'Drinks'
+  ]),
+  status: sample(['success', 'pending']),
   role: sample([
     'Leader',
     'Hr Manager',
@@ -23,6 +35,15 @@ const users = [...Array(24)].map((_, index) => ({
     'Full Stack Designer',
     'Front End Developer',
     'Full Stack Developer'
+  ]),
+  store: sample([
+    'Big Bazaar',
+    'Metro Wholesale',
+    'Royal Mart',
+    'Reliance Stores',
+    'Landmark',
+    'Walmart',
+    'Target'
   ])
 }));
 

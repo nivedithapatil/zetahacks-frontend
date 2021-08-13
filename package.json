@@ -41,6 +41,7 @@
     "@iconify/icons-ant-design": "^1.1.0",
     "@iconify/icons-eva": "^1.1.0",
     "@iconify/icons-ic": "^1.1.7",
+    "@iconify/icons-icon-park": "^1.1.1",
     "@iconify/react": "^1.1.4",
     "@material-ui/core": "^5.0.0-beta.1",
     "@material-ui/lab": "^5.0.0-alpha.40",

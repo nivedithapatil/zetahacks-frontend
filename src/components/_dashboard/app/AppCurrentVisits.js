@@ -4,7 +4,7 @@ import ReactApexChart from 'react-apexcharts';
 import { useTheme, styled } from '@material-ui/core/styles';
 import { Card, CardHeader } from '@material-ui/core';
 // utils
-import { fNumber } from '../../../utils/formatNumber';
+import { fCurrency } from '../../../utils/formatNumber';
 //
 import { BaseOptionChart } from '../../charts';
 
@@ -31,28 +31,29 @@ const ChartWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [4344, 5435, 1443, 4443];
+const CHART_DATA = [27300, 5500, 5000, 3500];
 
 export default function AppCurrentVisits() {
   const theme = useTheme();
 
   const chartOptions = merge(BaseOptionChart(), {
     colors: [
-      theme.palette.primary.main,
-      theme.palette.info.main,
-      theme.palette.warning.main,
-      theme.palette.error.main
+      theme.palette.warning.light,
+      theme.palette.info.light,
+      theme.palette.primary.light,
+      theme.palette.error.light
     ],
-    labels: ['America', 'Asia', 'Europe', 'Africa'],
+    foreColor: '#134',
+    labels: ['Food', 'Clothing', 'Electronics', 'Healthcare & Wellness'],
     stroke: { colors: [theme.palette.background.paper] },
     legend: { floating: true, horizontalAlign: 'center' },
     dataLabels: { enabled: true, dropShadow: { enabled: false } },
     tooltip: {
       fillSeriesColor: false,
       y: {
-        formatter: (seriesName) => fNumber(seriesName),
+        formatter: (seriesName) => fCurrency(seriesName),
         title: {
-          formatter: (seriesName) => `#${seriesName}`
+          formatter: (seriesName) => `${seriesName}`
         }
       }
     },
@@ -63,7 +64,7 @@ export default function AppCurrentVisits() {
 
   return (
     <Card>
-      <CardHeader title="Current Visits" />
+      <CardHeader title="Product Category" />
       <ChartWrapperStyle dir="ltr">
         <ReactApexChart type="pie" series={CHART_DATA} options={chartOptions} height={280} />
       </ChartWrapperStyle>

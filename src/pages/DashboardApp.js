@@ -3,25 +3,25 @@ import { Box, Grid, Container, Typography } from '@material-ui/core';
 // components
 import Page from '../components/Page';
 import {
-  AppTasks,
   AppNewUsers,
   AppBugReports,
   AppItemOrders,
-  AppNewsUpdate,
   AppWeeklySales,
   AppOrderTimeline,
   AppCurrentVisits,
   AppWebsiteVisits,
-  AppTrafficBySite,
-  AppCurrentSubject,
   AppConversionRates
 } from '../components/_dashboard/app';
+import FoodData from '../_mocks_/Food';
+import ClothingData from '../_mocks_/Clothing';
+import ElectronicsData from '../_mocks_/Electronics';
+import HealthcareData from '../_mocks_/H&W';
 
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
   return (
-    <Page title="Dashboard | Minimal-UI">
+    <Page title="Dashboard">
       <Container maxWidth="xl">
         <Box sx={{ pb: 5 }}>
           <Typography variant="h4">Hi, Welcome back</Typography>
@@ -48,28 +48,24 @@ export default function DashboardApp() {
             <AppCurrentVisits />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
-            <AppConversionRates />
+          <Grid item xs={6} md={3} lg={6}>
+            <AppConversionRates category="Food" chartData={FoodData} />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentSubject />
+          <Grid item xs={6} md={3} lg={6}>
+            <AppConversionRates category="Clothing" chartData={ClothingData} />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
-            <AppNewsUpdate />
+          <Grid item xs={6} md={3} lg={6}>
+            <AppConversionRates category="Electronics" chartData={ElectronicsData} />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={4}>
+          <Grid item xs={6} md={3} lg={6}>
+            <AppConversionRates category="Healthcare & Wellness" chartData={HealthcareData} />
+          </Grid>
+
+          <Grid item xs={12} md={12} lg={6}>
             <AppOrderTimeline />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppTrafficBySite />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppTasks />
           </Grid>
         </Grid>
       </Container>
